@@ -1,0 +1,5 @@
+[profile.default]
+src = "contracts"
+out = ".foundry/out"
+cache_path = ".foundry/cache"
+libs = []

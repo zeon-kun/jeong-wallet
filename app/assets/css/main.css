@@ -1,0 +1,397 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+/*
+ * Jeong notebook theme (designs/wallet-v3.pen)
+ * Paper + ink, blue pen for margin notes, coral heart for doodles, yellow highlighter.
+ * Hand fonts are for headings and labels only; money, addresses and hashes stay in Inter / JetBrains Mono.
+ */
+
+@theme {
+  /* Korean fallbacks so 정 never renders as a box in body text */
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR",
+    "Gaegu", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-hand: "Gaegu", "Inter", ui-sans-serif, cursive;
+  --font-scribble: "Caveat", "Gaegu", cursive;
+
+  /* Nuxt UI primary palette, built around jw-heart #E0533D */
+  --color-coral-50: #fef4f1;
+  --color-coral-100: #fbe3dc;
+  --color-coral-200: #f8c7b9;
+  --color-coral-300: #f2a18c;
+  --color-coral-400: #ea7659;
+  --color-coral-500: #e0533d;
+  --color-coral-600: #c93f2b;
+  --color-coral-700: #a73223;
+  --color-coral-800: #872c22;
+  --color-coral-900: #6f2920;
+  --color-coral-950: #3c110c;
+}
+
+@theme inline {
+  --color-paper: var(--jw-paper);
+  --color-paper-deep: var(--jw-paper-deep);
+  --color-card: var(--jw-card);
+  --color-ink: var(--jw-ink);
+  --color-ink-soft: var(--jw-ink-soft);
+  --color-pencil: var(--jw-pencil);
+  --color-rule: var(--jw-rule);
+  --color-sketch: var(--jw-sketch);
+  --color-margin: var(--jw-margin);
+  --color-pen: var(--jw-pen);
+  --color-heart: var(--jw-heart);
+  --color-heart-soft: var(--jw-heart-soft);
+  --color-highlight: var(--jw-highlight);
+  --color-sticky: var(--jw-sticky);
+  --color-sticky-pink: var(--jw-sticky-pink);
+  --color-on-sticky: var(--jw-on-sticky);
+  --color-accent: var(--jw-accent);
+  --color-accent-soft: var(--jw-accent-soft);
+  --color-warn: var(--jw-warn);
+  --color-warn-dot: var(--jw-warn-dot);
+  --color-danger: var(--jw-danger);
+  --color-danger-soft: var(--jw-danger-soft);
+  --color-btn: var(--jw-btn);
+  --color-on-btn: var(--jw-on-btn);
+  --color-tape: var(--jw-tape);
+}
+
+:root {
+  --jw-paper: #fbf7ee;
+  --jw-paper-deep: #f3ecdc;
+  --jw-card: #fffdf8;
+  --jw-ink: #1f2233;
+  --jw-ink-soft: #5e6070;
+  --jw-pencil: #9a9484;
+  --jw-rule: #d9e3ee;
+  --jw-sketch: #2a2d3e;
+  --jw-margin: #eba4a0;
+  --jw-pen: #2e56c9;
+  --jw-heart: #e0533d;
+  --jw-heart-soft: #fbe3dc;
+  --jw-highlight: #ffe27a;
+  --jw-sticky: #fff0a6;
+  --jw-sticky-pink: #ffd9d2;
+  --jw-on-sticky: #1f2233;
+  --jw-accent: #1f7a63;
+  --jw-accent-soft: #e3f1ec;
+  --jw-warn: #92400e;
+  --jw-warn-dot: #f59e0b;
+  --jw-danger: #d92d20;
+  --jw-danger-soft: #fdecec;
+  --jw-btn: #1f2233;
+  --jw-on-btn: #fbf7ee;
+  --jw-shadow: rgb(31 34 51 / 0.13);
+  --jw-tape: rgb(222 211 186 / 0.75);
+
+  /* Nuxt UI surfaces follow the paper */
+  --ui-primary: var(--jw-heart);
+  --ui-bg: var(--jw-paper);
+  --ui-bg-muted: var(--jw-paper-deep);
+  --ui-bg-elevated: var(--jw-card);
+  --ui-bg-accented: var(--jw-paper-deep);
+  --ui-bg-inverted: var(--jw-ink);
+  --ui-text: var(--jw-ink);
+  --ui-text-muted: var(--jw-ink-soft);
+  --ui-text-dimmed: var(--jw-pencil);
+  --ui-text-toned: var(--jw-ink-soft);
+  --ui-text-highlighted: var(--jw-ink);
+  --ui-border: var(--jw-rule);
+  --ui-border-muted: var(--jw-rule);
+  --ui-border-accented: var(--jw-sketch);
+  --ui-border-inverted: var(--jw-ink);
+  --ui-radius: 0.5rem;
+}
+
+/* Notebook at night: same notebook, desk lamp off */
+.dark {
+  --jw-paper: #17191f;
+  --jw-paper-deep: #1e2028;
+  --jw-card: #22252e;
+  --jw-ink: #eee7d7;
+  --jw-ink-soft: #b1ab9d;
+  --jw-pencil: #7d786d;
+  --jw-rule: #343846;
+  --jw-sketch: #cfc7b5;
+  --jw-margin: #7a3f3d;
+  --jw-pen: #93aaff;
+  --jw-heart: #ff7a63;
+  --jw-heart-soft: #3b2622;
+  --jw-highlight: #e9c94a;
+  --jw-sticky: #e8d98a;
+  --jw-sticky-pink: #e8b4aa;
+  --jw-on-sticky: #1f2233;
+  --jw-accent: #5cc9a4;
+  --jw-accent-soft: #1d3a31;
+  --jw-warn: #f5b453;
+  --jw-warn-dot: #f59e0b;
+  --jw-danger: #ff7b6e;
+  --jw-danger-soft: #3d2222;
+  --jw-btn: #eee7d7;
+  --jw-on-btn: #17191f;
+  --jw-shadow: rgb(0 0 0 / 0.45);
+  --jw-tape: rgb(120 112 95 / 0.55);
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--jw-paper);
+    color: var(--jw-ink);
+  }
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--jw-highlight);
+    color: var(--jw-on-sticky);
+  }
+}
+
+@layer components {
+  /* Handwritten label: Gaegu with the airy tracking from the mockups */
+  .hand {
+    font-family: var(--font-hand);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .scribble {
+    font-family: var(--font-scribble);
+    font-weight: 500;
+    line-height: 1.1;
+  }
+  .num {
+    font-family: var(--font-sans);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+
+  .sketch-card-danger {
+    background: var(--jw-card);
+    border: 1.6px solid var(--jw-danger);
+    border-radius: 14px 18px 13px 16px;
+    box-shadow: 3px 4px 0 color-mix(in srgb, var(--jw-danger) 30%, transparent);
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    font-family: var(--font-hand);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    font-size: 1.15rem;
+    min-height: 3rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 12px 16px 11px 14px;
+    border: 1.6px solid var(--jw-sketch);
+    transition:
+      transform 0.08s ease,
+      box-shadow 0.08s ease,
+      opacity 0.15s;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    min-width: 0;
+  }
+  .btn:focus-visible {
+    outline: 2px solid var(--jw-pen);
+    outline-offset: 3px;
+  }
+  .btn:disabled,
+  .btn[aria-disabled="true"] {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  .btn-primary {
+    background: var(--jw-btn);
+    color: var(--jw-on-btn);
+    border-color: var(--jw-btn);
+    box-shadow: 4px 4px 0 var(--jw-heart);
+  }
+  .btn-primary:not(:disabled):active {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--jw-heart);
+  }
+  .btn-outline {
+    background: var(--jw-card);
+    color: var(--jw-ink);
+    box-shadow: 3px 3px 0 var(--jw-shadow);
+  }
+  .btn-outline:not(:disabled):hover {
+    background: var(--jw-paper-deep);
+  }
+  .btn-outline:not(:disabled):active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--jw-shadow);
+  }
+  .btn-danger {
+    background: var(--jw-danger);
+    color: #fff;
+    border-color: var(--jw-danger);
+    box-shadow: 4px 4px 0 var(--jw-sketch);
+  }
+  .btn-ghost {
+    background: transparent;
+    border-color: transparent;
+    color: var(--jw-ink);
+  }
+  .btn-ghost:not(:disabled):hover {
+    background: var(--jw-paper-deep);
+  }
+  .btn-sm {
+    min-height: 2.25rem;
+    font-size: 1rem;
+    padding: 0.25rem 0.9rem;
+    border-radius: 999px;
+  }
+
+  /* Pills: filters, presets, small tags */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-hand);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.85rem;
+    border: 1.4px solid var(--jw-sketch);
+    border-radius: 999px;
+    background: var(--jw-card);
+    color: var(--jw-ink);
+    cursor: pointer;
+  }
+  .pill[aria-pressed="true"],
+  .pill-active {
+    background: var(--jw-highlight);
+    color: var(--jw-on-sticky);
+  }
+
+  /* Sticky note with a strip of tape */
+  .sticky-note {
+    position: relative;
+    background: var(--jw-sticky);
+    color: var(--jw-on-sticky);
+    padding: 1.25rem 1.1rem 1rem;
+    border-radius: 2px 3px 2px 4px;
+    box-shadow: 3px 5px 0 var(--jw-shadow);
+  }
+  .sticky-note-pink {
+    background: var(--jw-sticky-pink);
+  }
+
+  /* Sketchy text input */
+  .sketch-input {
+    width: 100%;
+    background: var(--jw-card);
+    color: var(--jw-ink);
+    border: 1.6px solid var(--jw-sketch);
+    border-radius: 10px 13px 10px 12px;
+    padding: 0.7rem 0.9rem;
+    outline: none;
+    box-shadow: 2px 3px 0 var(--jw-shadow);
+  }
+  .sketch-input:focus {
+    border-color: var(--jw-pen);
+    box-shadow:
+      0 0 0 3px color-mix(in srgb, var(--jw-pen) 18%, transparent),
+      2px 3px 0 var(--jw-shadow);
+  }
+  .sketch-input[aria-invalid="true"] {
+    border-color: var(--jw-danger);
+  }
+  .sketch-input::placeholder {
+    color: var(--jw-pencil);
+  }
+
+  /* Ruled list rows */
+  .ruled > * + * {
+    border-top: 1.2px solid var(--jw-rule);
+  }
+
+  /* Icon-in-a-circle used for activity rows and list items */
+  .ink-dot {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--jw-sketch);
+    background: var(--jw-card);
+  }
+
+  /* Notebook ring holes down the sidebar edge */
+  .ring-holes {
+    background-image: radial-gradient(
+      circle at center,
+      transparent 4px,
+      var(--jw-pencil) 4.6px,
+      var(--jw-pencil) 5.4px,
+      transparent 6px
+    );
+    background-size: 20px 40px;
+    background-repeat: repeat-y;
+    background-position: center 12px;
+    opacity: 0.8;
+  }
+
+  .label {
+    font-family: var(--font-hand);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    font-size: 1rem;
+    color: var(--jw-ink);
+  }
+}
+
+/* Sketchy card: ink outline, slightly uneven corners, flat offset shadow (utility so lg: works) */
+@utility sketch-card {
+  background: var(--jw-card);
+  border: 1.6px solid var(--jw-sketch);
+  border-radius: 14px 18px 13px 16px;
+  box-shadow: 3px 4px 0 var(--jw-shadow);
+}
+
+/* Strip of tape on top of a note or card */
+@utility tape {
+  &::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    width: 64px;
+    height: 18px;
+    transform: translateX(-50%) rotate(-2deg);
+    background: var(--jw-tape);
+  }
+}
+
+/* Red margin line on the page (a utility so it works with lg:) */
+@utility margin-line {
+  background-image: linear-gradient(var(--jw-margin), var(--jw-margin));
+  background-size: 1.5px 100%;
+  background-repeat: no-repeat;
+  background-position: 36px 0;
+}
+
+/* Phones: hand lettering is wide; tighten it so paired buttons keep their label on one line */
+@media (max-width: 420px) {
+  .btn {
+    font-size: 1.02rem;
+    letter-spacing: 0.035em;
+    padding-inline: 0.7rem;
+    gap: 0.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}

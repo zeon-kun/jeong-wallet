@@ -22,3 +22,17 @@ logs
 .env
 .env.*
 !.env.example
+
+# anvil fork rpc
+.anvil
+
+# design from pen cli
+designs
+# foundry build output
+.foundry
+
+# written by scripts/deploy-token.sh (tied to local chain state)
+public/local-token.json
+
+# local test scripts
+scripts/tmp-test

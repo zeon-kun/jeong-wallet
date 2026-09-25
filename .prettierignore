@@ -1,0 +1,13 @@
+.nuxt
+.output
+.data
+.nitro
+.cache
+dist
+node_modules
+coverage
+public
+bun.lock
+*.min.*
+.env
+.env.*
