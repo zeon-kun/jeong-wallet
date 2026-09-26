@@ -1,0 +1,1 @@
+Jeong Wallet: no seed phrase, just your fingerprint. A passkey signs every transaction for an ERC-4337 smart account, and the whole stack (Anvil fork + Alto bundler + Nuxt) runs on your own machine. github.com/zeon-kun/jeong-wallet

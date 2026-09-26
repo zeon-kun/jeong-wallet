@@ -23,7 +23,8 @@ const { copy } = useCopy();
       :aria-label="`Copy address ${props.address}`"
       @click="copy(props.address, 'Address copied')"
     >
-      {{ shortAddress(props.address, head, tail) }}
+      <!-- head = tail = 0: icon-only copy button (the full address is shown next to it) -->
+      <template v-if="head || tail">{{ shortAddress(props.address, head, tail) }}</template>
       <UIcon name="i-lucide-copy" class="size-3.5 opacity-70" />
     </button>
   </UTooltip>
