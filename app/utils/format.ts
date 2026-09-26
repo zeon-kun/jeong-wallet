@@ -4,7 +4,8 @@ import { formatUnits, type Address } from "viem";
 export function shortAddress(address?: string | null, head = 6, tail = 4) {
   if (!address) return "";
   if (address.length <= head + tail + 1) return address;
-  return `${address.slice(0, head)}…${address.slice(-tail)}`;
+  // slice(-0) is the whole string, so tail = 0 needs its own branch
+  return `${address.slice(0, head)}…${tail > 0 ? address.slice(-tail) : ""}`;
 }
 
 /** 0x7c1e…a93f for hashes */
